@@ -1,0 +1,25 @@
+# Archivos de credenciales y configuración sensible
+.env
+env.js
+credentials.json
+service-account-key.json
+google-credentials.json
+
+# Archivos de configuración local
+config.local.js
+secrets.js
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencias
+node_modules/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.temp

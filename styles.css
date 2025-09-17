@@ -1,0 +1,1750 @@
+:root {
+  --petal-yellow: #FFD700;
+  --petal-orange: #FFB347;
+  --petal-light: #FFF176;
+  --mindful-purple: #9B59B6;
+  --mindful-green: #27AE60;
+  --mindful-blue: #3498DB;
+  --soft-white: #FEFEFE;
+  --warm-beige: #F5F5DC;
+  --sage-green: #9CAF88;
+  --lavender: #E6E6FA;
+  --sunset-orange: #FF8C69;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  color: #4a4a4a;
+  line-height: 1.6;
+  background: linear-gradient(135deg, var(--warm-beige) 0%, var(--lavender) 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 40px 0;
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.header h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  color: var(--mindful-purple);
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: var(--sage-green);
+  font-style: italic;
+}
+
+/* Navegación */
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background: linear-gradient(45deg, var(--mindful-green), var(--mindful-blue));
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Merriweather', serif;
+  font-weight: 500;
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  filter: brightness(110%);
+}
+
+.nav-btn.active {
+  background: linear-gradient(45deg, var(--mindful-purple), var(--sunset-orange));
+  transform: scale(1.05);
+}
+
+/* Secciones */
+.section {
+  display: none;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.section.active {
+  display: block;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section h2 {
+  color: var(--mindful-purple);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Formulario de reservas */
+.reservation-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--mindful-purple);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid var(--lavender);
+  border-radius: 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: 'Merriweather', serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--mindful-blue);
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+  transform: translateY(-2px);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botones */
+.btn {
+  background: linear-gradient(45deg, var(--mindful-green), var(--mindful-blue));
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  filter: brightness(110%);
+}
+
+.btn-submit {
+  background: linear-gradient(45deg, var(--mindful-purple), var(--sunset-orange));
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+/* Servicios */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.service-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 248, 255, 0.9));
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-color: var(--mindful-blue);
+}
+
+.service-card .icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.service-card h3 {
+  color: var(--mindful-purple);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.service-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Elementos flotantes eliminados */
+
+/* Notificaciones */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, var(--mindful-green), var(--mindful-blue));
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transform: translateX(400px);
+  transition: transform 0.3s ease;
+  max-width: 300px;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification.error {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+}
+
+.notification.success {
+  background: linear-gradient(45deg, var(--mindful-green), #27AE60);
+}
+
+/* Loader */
+.loader {
+  display: none;
+  border: 4px solid rgba(156, 175, 136, 0.3);
+  border-top: 4px solid var(--sage-green);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .header {
+    padding: 30px 20px;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-btn {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .section {
+    padding: 25px 20px;
+  }
+
+  .reservation-form {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes breathe {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(156, 175, 136, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(156, 175, 136, 0.6);
+  }
+}
+
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Efectos de partículas */
+/* Partículas y elementos geométricos eliminados */
+
+/* Subtitle eliminado */
+
+.zen-symbol {
+  font-size: 5rem;
+  color: var(--mindful-purple);
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.zen-symbol i {
+  animation: rotate-zen 20s linear infinite;
+}
+
+@keyframes rotate-zen {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Mandala */
+.mandala-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.mandala {
+  width: 150px;
+  height: 150px;
+  border: 3px solid var(--mindful-purple);
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle, rgba(155, 89, 182, 0.1), transparent);
+}
+
+.mandala::before,
+.mandala::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--mindful-blue);
+  border-radius: 50%;
+}
+
+.mandala::before {
+  width: 100px;
+  height: 100px;
+}
+
+.mandala::after {
+  width: 50px;
+  height: 50px;
+  background: var(--petal-light);
+}
+
+/* Características */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--mindful-blue);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, var(--mindful-purple), var(--mindful-blue));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+  font-size: 2rem;
+  box-shadow: 0 10px 25px rgba(155, 89, 182, 0.3);
+}
+
+.feature-card h3 {
+  color: var(--mindful-purple);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.pulse-btn {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 5px 30px rgba(155, 89, 182, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+/* Formulario mejorado */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label i {
+  margin-right: 8px;
+  color: var(--mindful-blue);
+}
+
+/* Botón mejorado */
+.btn-submit {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-submit .btn-loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Sección descripción */
+.section-description {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+/* Búsqueda */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid var(--lavender);
+  border-radius: 50px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: var(--mindful-blue);
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+}
+
+.btn-search {
+  padding: 15px 20px;
+  border-radius: 50px;
+  min-width: auto;
+}
+
+/* Contenedor de reservas */
+.reservations-container {
+  display: grid;
+  gap: 20px;
+}
+
+.no-reservations {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.no-reservations i {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: var(--lavender);
+}
+
+.reservation-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--mindful-blue);
+  transition: all 0.3s ease;
+}
+
+.reservation-card:hover {
+  transform: translateX(10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.reservation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.reservation-header h4 {
+  color: var(--mindful-purple);
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.pendiente {
+  background: linear-gradient(45deg, #f39c12, #e67e22);
+  color: white;
+}
+
+.status-badge.confirmado {
+  background: linear-gradient(45deg, #27ae60, #2ecc71);
+  color: white;
+}
+
+.status-badge.cancelado {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.reservation-details p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reservation-details i {
+  color: var(--mindful-blue);
+  width: 20px;
+}
+
+/* Filosofía */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.philosophy-card {
+  text-align: center;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.philosophy-card:hover {
+  transform: translateY(-15px);
+  border-color: var(--sunset-orange);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.icon-mandala {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, var(--sunset-orange), var(--mindful-purple));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  color: white;
+  font-size: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-mandala::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--mindful-blue), var(--sage-green));
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Testimonios */
+.testimonials {
+  margin-top: 60px;
+}
+
+.testimonials h3 {
+  text-align: center;
+  color: var(--mindful-purple);
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.stars {
+  color: #f39c12;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.testimonial-card p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid var(--mindful-blue);
+}
+
+.author span {
+  font-weight: 600;
+  color: var(--mindful-purple);
+}
+
+/* Controles flotantes */
+.floating-controls {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.control-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(45deg, var(--mindful-green), var(--mindful-blue));
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Loader principal */
+.main-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--warm-beige), var(--lavender));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader-content {
+  text-align: center;
+  color: var(--mindful-purple);
+}
+
+.loader-content p {
+  animation: loaderTextPulse 2s ease-in-out infinite;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+@keyframes loaderTextPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.lotus-loader {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin: 0 auto 30px;
+  animation: lotusRotate 8s linear infinite;
+  filter: drop-shadow(0 4px 8px rgba(155, 89, 182, 0.3));
+}
+
+@keyframes lotusRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.lotus-petal {
+  position: absolute;
+  width: 24px;
+  height: 48px;
+  background: linear-gradient(45deg, #9B59B6 0%, #E67E22 50%, #F39C12 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform-origin: bottom center;
+  animation: lotusPetalBreathe 4s ease-in-out infinite;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -24px;
+  box-shadow: 0 3px 12px rgba(155, 89, 182, 0.4);
+  filter: drop-shadow(0 2px 6px rgba(255, 140, 0, 0.3));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes lotusPetalBreathe {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.lotus-petal:nth-child(1) { 
+  transform: rotate(0deg) translateY(-30px) scale(1);
+  animation-delay: 0s;
+}
+.lotus-petal:nth-child(2) { 
+  transform: rotate(45deg) translateY(-30px) scale(1);
+  animation-delay: 0.2s;
+}
+.lotus-petal:nth-child(3) { 
+  transform: rotate(90deg) translateY(-30px) scale(1);
+  animation-delay: 0.4s;
+}
+.lotus-petal:nth-child(4) { 
+  transform: rotate(135deg) translateY(-30px) scale(1);
+  animation-delay: 0.6s;
+}
+.lotus-petal:nth-child(5) { 
+  transform: rotate(180deg) translateY(-30px) scale(1);
+  animation-delay: 0.8s;
+}
+.lotus-petal:nth-child(6) { 
+  transform: rotate(225deg) translateY(-30px) scale(1);
+  animation-delay: 1s;
+}
+.lotus-petal:nth-child(7) { 
+  transform: rotate(270deg) translateY(-30px) scale(1);
+  animation-delay: 1.2s;
+}
+.lotus-petal:nth-child(8) { 
+  transform: rotate(315deg) translateY(-30px) scale(1);
+  animation-delay: 1.4s;
+}
+
+/* Centro de la flor de loto */
+.lotus-loader::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle, #FFD700 0%, #FFA500 30%, #FF8C00 70%, #E65100 100%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.6);
+  animation: lotusCenterPulse 3s ease-in-out infinite;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes lotusCenterPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Tema oscuro */
+.dark-theme {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.dark-theme .section {
+  background: rgba(44, 62, 80, 0.95);
+  color: #ecf0f1;
+}
+
+.dark-theme .header {
+  background: rgba(44, 62, 80, 0.9);
+  color: #ecf0f1;
+}
+
+.dark-theme .form-group input,
+.dark-theme .form-group select,
+.dark-theme .form-group textarea {
+  background: rgba(52, 73, 94, 0.8);
+  border-color: #7f8c8d;
+  color: #ecf0f1;
+}
+
+.dark-theme .service-card,
+.dark-theme .feature-card,
+.dark-theme .philosophy-card {
+  background: rgba(52, 73, 94, 0.9);
+  color: #ecf0f1;
+}
+
+/* Navegación responsive */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .nav-btn span {
+    display: none;
+  }
+
+  .floating-controls {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   CALENDARIO STYLES
+   ================================ */
+.calendar-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.calendar-header h3 {
+  color: var(--mindful-purple);
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.calendar-nav-btn {
+  background: linear-gradient(45deg, var(--mindful-blue), var(--sage-green));
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-nav-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-grid {
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: var(--mindful-purple);
+}
+
+.day-header {
+  padding: 15px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: white;
+}
+
+.calendar-day {
+  padding: 15px 10px;
+  text-align: center;
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day:hover {
+  background: rgba(156, 175, 136, 0.1);
+  transform: scale(1.05);
+}
+
+.calendar-day.other-month {
+  color: #ccc;
+  background: #f9f9f9;
+}
+
+.calendar-day.today {
+  background: linear-gradient(45deg, var(--sunset-orange), var(--mindful-purple));
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 2px;
+}
+
+.calendar-day.has-reservations {
+  background: linear-gradient(45deg, var(--mindful-green), var(--mindful-blue));
+  color: white;
+  border-radius: 10px;
+  margin: 2px;
+}
+
+.calendar-day.selected {
+  background: linear-gradient(45deg, var(--mindful-blue), var(--sage-green));
+  color: white;
+  border-radius: 10px;
+  margin: 2px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.reservation-count {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--mindful-purple);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Tooltip de reservas */
+.reservation-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  min-width: 150px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.calendar-day:hover .reservation-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.reservation-time {
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.reservation-time:last-child {
+  border-bottom: none;
+}
+
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(230, 230, 250, 0.3);
+  border-radius: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.legend-color.free {
+  background: white;
+  border: 2px solid #ddd;
+}
+
+.legend-color.reserved {
+  background: linear-gradient(45deg, var(--mindful-green), var(--mindful-blue));
+}
+
+.legend-color.today {
+  background: linear-gradient(45deg, var(--sunset-orange), var(--mindful-purple));
+}
+
+.reservation-details {
+  margin-top: 30px;
+  padding: 25px;
+  background: rgba(230, 230, 250, 0.3);
+  border-radius: 15px;
+}
+
+.reservation-details h3 {
+  color: var(--mindful-purple);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.day-reservations {
+  display: grid;
+  gap: 15px;
+}
+
+.day-reservation-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid var(--mindful-blue);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.day-reservation-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ================================
+   ANIMACIONES SUAVES (ESTILO AGUA)
+   ================================ */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes flowingWater {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes liquidText {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+    filter: blur(5px);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+/* Aplicar animaciones fluidas */
+.header h1 {
+  animation: liquidText 2s ease-out forwards;
+}
+
+.header p {
+  animation: flowingWater 2.5s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.section h2 {
+  animation: liquidText 1.5s ease-out forwards;
+}
+
+.section p {
+  animation: flowingWater 2s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Remover animaciones bruscas */
+.nav-btn, .btn, .service-card, .form-group {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Quitar estilos de estrellas */
+.stars {
+  display: none;
+}
+
+/* ================================
+   MODAL DE RESERVA
+   ================================ */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--lavender);
+}
+
+.modal-header h3 {
+  color: var(--mindful-purple);
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.close {
+  font-size: 2rem;
+  color: var(--sage-green);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close:hover {
+  background: var(--lavender);
+  color: var(--mindful-purple);
+  transform: rotate(90deg);
+}
+
+/* ================================
+   PÉTALOS DE GIRASOL CAYENDO
+   ================================ */
+.sunflower-petal {
+  position: fixed;
+  width: 18px;
+  height: 35px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+  border-radius: 50% 20% 50% 20%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+  animation: fall var(--fall-duration, 10s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  transform-origin: center bottom;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  filter: drop-shadow(0 2px 4px rgba(255, 140, 0, 0.3));
+}
+
+.sunflower-petal:nth-child(odd) {
+  background: linear-gradient(135deg, #FFA500 0%, #FF8C00 50%, #FF6B00 100%);
+  transform: scale(0.8) rotate(15deg);
+  width: 16px;
+  height: 32px;
+}
+
+.sunflower-petal:nth-child(even) {
+  background: linear-gradient(135deg, #FFD700 0%, #FFFF99 50%, #FFA500 100%);
+  transform: scale(1.1) rotate(-10deg);
+  width: 20px;
+  height: 38px;
+}
+
+.sunflower-petal:nth-child(3n) {
+  background: linear-gradient(135deg, #FFC107 0%, #FF9800 50%, #FF5722 100%);
+  transform: scale(0.9) rotate(25deg);
+  width: 17px;
+  height: 33px;
+}
+
+.sunflower-petal:nth-child(4n) {
+  background: linear-gradient(135deg, #FFEB3B 0%, #FFC107 50%, #FF9800 100%);
+  transform: scale(1.05) rotate(-20deg);
+  width: 19px;
+  height: 36px;
+}
+
+.sunflower-petal:nth-child(5n) {
+  background: linear-gradient(135deg, #FF8F00 0%, #FF6F00 50%, #E65100 100%);
+  transform: scale(0.85) rotate(30deg);
+  width: 15px;
+  height: 30px;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-200vh) translateX(0px) rotateZ(0deg) scale(0.2);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.8;
+    transform: translateY(-180vh) translateX(var(--horizontal-drift, 0px)) rotateZ(30deg) scale(0.4);
+  }
+  15% {
+    transform: translateY(-150vh) translateX(calc(var(--horizontal-drift, 0px) * 1.2)) rotateZ(90deg) scale(0.6);
+  }
+  30% {
+    transform: translateY(-100vh) translateX(calc(var(--horizontal-drift, 0px) * 1.8)) rotateZ(180deg) scale(0.8);
+  }
+  50% {
+    transform: translateY(-50vh) translateX(calc(var(--horizontal-drift, 0px) * 2.2)) rotateZ(270deg) scale(1);
+  }
+  70% {
+    transform: translateY(0vh) translateX(calc(var(--horizontal-drift, 0px) * 2.8)) rotateZ(360deg) scale(0.9);
+  }
+  85% {
+    opacity: 0.8;
+    transform: translateY(50vh) translateX(calc(var(--horizontal-drift, 0px) * 3.2)) rotateZ(450deg) scale(0.7);
+  }
+  95% {
+    opacity: 0.4;
+    transform: translateY(100vh) translateX(calc(var(--horizontal-drift, 0px) * 3.5)) rotateZ(540deg) scale(0.5);
+  }
+  100% {
+    transform: translateY(150vh) translateX(calc(var(--horizontal-drift, 0px) * 4)) rotateZ(720deg) scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* Texto motivacional con efecto de aparición */
+.motivational-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: var(--sunset-orange);
+  text-align: center;
+  margin: 20px 0;
+  opacity: 0;
+  animation: fadeInOut 4s ease-in-out infinite;
+  animation-delay: 2s;
+  font-weight: bold;
+}
+
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Estilos para la sección principal del calendario */
+.calendar-main-section {
+  margin: 40px 0;
+  padding: 0;
+}
+
+/* ================================
+   TÍTULO PRINCIPAL MEJORADO
+   ================================ */
+.main-title-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.main-title {
+  color: var(--mindful-purple);
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.florecer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.florecer-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: var(--sunset-orange);
+  font-weight: 600;
+}
+
+.ser-highlight {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: var(--mindful-purple);
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(155, 89, 182, 0.3);
+  animation: serPulse 2s ease-in-out infinite;
+}
+
+@keyframes serPulse {
+  0%, 100% {
+    transform: scale(1);
+    color: var(--mindful-purple);
+  }
+  50% {
+    transform: scale(1.1);
+    color: var(--sunset-orange);
+  }
+}
+
+.exclamation {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: var(--sunset-orange);
+  font-weight: bold;
+}
+
+/* ================================
+   GIRASOL QUE CRECE
+   ================================ */
+.growing-sunflower {
+  position: relative;
+  margin-left: 20px;
+  animation: sunflowerGrow 3s ease-out forwards;
+  transform-origin: center center;
+  display: inline-block;
+}
+
+@keyframes sunflowerGrow {
+  0% {
+    transform: scale(0) rotate(-5deg);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(0.4) rotate(-2deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(0.7) rotate(0deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: scale(0.9) rotate(1deg);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+
+.sunflower-head {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  animation: headGrow 2s ease-out 1s forwards;
+  transform-origin: center;
+  transform: scale(0);
+}
+
+@keyframes headGrow {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.sunflower-petals {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.petal {
+  position: absolute;
+  width: 20px;
+  height: 35px;
+  background: linear-gradient(45deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+  border-radius: 50% 20% 50% 20%;
+  top: 50%;
+  left: 50%;
+  transform-origin: center bottom;
+  animation: petalGrow 1.5s ease-out 2.5s forwards;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  box-shadow: 0 2px 6px rgba(255, 140, 0, 0.4);
+  filter: drop-shadow(0 1px 3px rgba(255, 165, 0, 0.3));
+}
+
+.petal:nth-child(1) { 
+  --petal-rotation: 0deg;
+  animation: petalGrow 1.2s ease-out 1.2s forwards;
+  transform: translate(-50%, -50%) rotate(0deg) scale(0);
+}
+.petal:nth-child(2) { 
+  --petal-rotation: 45deg;
+  animation: petalGrow 1.2s ease-out 1.3s forwards;
+  transform: translate(-50%, -50%) rotate(45deg) scale(0);
+}
+.petal:nth-child(3) { 
+  --petal-rotation: 90deg;
+  animation: petalGrow 1.2s ease-out 1.4s forwards;
+  transform: translate(-50%, -50%) rotate(90deg) scale(0);
+}
+.petal:nth-child(4) { 
+  --petal-rotation: 135deg;
+  animation: petalGrow 1.2s ease-out 1.5s forwards;
+  transform: translate(-50%, -50%) rotate(135deg) scale(0);
+}
+.petal:nth-child(5) { 
+  --petal-rotation: 180deg;
+  animation: petalGrow 1.2s ease-out 1.6s forwards;
+  transform: translate(-50%, -50%) rotate(180deg) scale(0);
+}
+.petal:nth-child(6) { 
+  --petal-rotation: 225deg;
+  animation: petalGrow 1.2s ease-out 1.7s forwards;
+  transform: translate(-50%, -50%) rotate(225deg) scale(0);
+}
+.petal:nth-child(7) { 
+  --petal-rotation: 270deg;
+  animation: petalGrow 1.2s ease-out 1.8s forwards;
+  transform: translate(-50%, -50%) rotate(270deg) scale(0);
+}
+.petal:nth-child(8) { 
+  --petal-rotation: 315deg;
+  animation: petalGrow 1.2s ease-out 1.9s forwards;
+  transform: translate(-50%, -50%) rotate(315deg) scale(0);
+}
+
+@keyframes petalGrow {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0) rotate(var(--petal-rotation, 0deg));
+  }
+  30% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.5) rotate(var(--petal-rotation, 0deg));
+  }
+  70% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(0.9) rotate(var(--petal-rotation, 0deg));
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(var(--petal-rotation, 0deg));
+  }
+}
+
+/* Animación final del girasol completo */
+.growing-sunflower {
+  animation: sunflowerGrow 3s ease-out forwards, sunflowerFloat 4s ease-in-out 2.2s infinite;
+}
+
+@keyframes sunflowerFloat {
+  0%, 100% {
+    transform: scale(1) rotate(0deg) translateY(0px);
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg) translateY(-5px);
+  }
+}
+
+/* Responsive para calendario */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .florecer-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .florecer-text {
+    font-size: 2rem;
+  }
+  
+  .ser-highlight {
+    font-size: 2.5rem;
+  }
+  
+  .exclamation {
+    font-size: 2rem;
+  }
+  
+  .growing-sunflower {
+    margin-left: 10px;
+    transform: scale(0.8);
+  }
+  
+  .calendar-container {
+    padding: 20px;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .calendar-legend {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .calendar-day {
+    min-height: 50px;
+    padding: 10px 5px;
+    font-size: 0.9rem;
+  }
+
+  .day-header {
+    padding: 10px 5px;
+    font-size: 0.8rem;
+  }
+}

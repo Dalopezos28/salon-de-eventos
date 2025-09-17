@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salón de Bienestar - Reservas Mindfulness</title>
+
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Merriweather:wght@300;400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Iconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Animate.css para animaciones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Swiper CSS para carruseles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.css">
+
+
+  <!-- Three.js para efectos 3D -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- GSAP para animaciones avanzadas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Typed.js para efectos de texto -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
+  <!-- Sweet Alert 2 para alertas hermosas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.20/sweetalert2.all.min.js"></script>
+
+  <!-- Flatpickr para date picker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/es.js"></script>
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Contenedor principal -->
+  <div class="container">
+
+    <!-- Calendario Principal (Fijo) -->
+    <section class="calendar-main-section">
+      <div class="main-title-container" data-aos="fade-down">
+        <h2 class="main-title">Salón de Bienestar - Reservas</h2>
+        <div class="florecer-container">
+          <span class="florecer-text">¡Juntos vamos a flore</span>
+          <span class="ser-highlight">Ser</span>
+          <span class="exclamation">!</span>
+            <div class="growing-sunflower">
+              <div class="sunflower-head">
+                <div class="sunflower-petals">
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <p class="section-description" data-aos="fade-left" data-aos-delay="200">
+        Haz clic en cualquier día para ver horarios disponibles y crear una reserva
+      </p>
+
+      <div class="calendar-container" data-aos="fade-up" data-aos-delay="400">
+        <div class="calendar-header">
+          <button id="prevMonth" class="calendar-nav-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <h3 id="currentMonth"></h3>
+          <button id="nextMonth" class="calendar-nav-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="calendar-grid">
+          <div class="calendar-days">
+            <div class="day-header">Dom</div>
+            <div class="day-header">Lun</div>
+            <div class="day-header">Mar</div>
+            <div class="day-header">Mié</div>
+            <div class="day-header">Jue</div>
+            <div class="day-header">Vie</div>
+            <div class="day-header">Sáb</div>
+          </div>
+          <div id="calendarDays" class="calendar-dates">
+            <!-- Los días se generarán dinámicamente -->
+          </div>
+        </div>
+
+        <div class="calendar-legend">
+          <div class="legend-item">
+            <div class="legend-color free"></div>
+            <span>Disponible</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color reserved"></div>
+            <span>Reservado</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color today"></div>
+            <span>Hoy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reservation-details" id="reservationDetails" style="display: none;">
+        <h3>Reservas del día</h3>
+        <div id="dayReservations" class="day-reservations">
+          <!-- Las reservas del día seleccionado aparecerán aquí -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegación (Ahora debajo del calendario) -->
+    <nav class="nav" data-aos="fade-up" data-aos-delay="300">
+      <button class="nav-btn" data-section="reservations">
+        <i class="fas fa-list"></i>
+        <span>Mis Reservas</span>
+      </button>
+      <button class="nav-btn" data-section="about">
+        <i class="fas fa-heart"></i>
+        <span>Nosotros</span>
+      </button>
+    </nav>
+
+
+
+    <!-- Sección Reservas Existentes -->
+    <section id="reservations" class="section">
+      <h2 data-aos="fade-down">Mis Reservas</h2>
+      <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+        Gestiona y revisa tus citas programadas
+      </p>
+
+      <div class="search-bar" data-aos="fade-right" data-aos-delay="400">
+        <input type="email" id="searchEmail" placeholder="Ingresa tu email para buscar reservas">
+        <button onclick="searchReservations()" class="btn btn-search">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <div id="reservationsList" class="reservations-container" data-aos="fade-up" data-aos-delay="600">
+        <div class="no-reservations">
+          <i class="fas fa-calendar-times"></i>
+          <p>Ingresa tu email para ver tus reservas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="about" class="section">
+      <div class="about-content" data-aos="fade-up">
+        <h2>Nuestra Filosofía</h2>
+        <div class="philosophy-grid">
+          <div class="philosophy-card" data-aos="flip-left" data-aos-delay="200">
+            <div class="icon-mandala">
+              <i class="fas fa-infinity"></i>
+            </div>
+            <h3>Conexión Interior</h3>
+            <p>Creemos que la verdadera sanación comienza desde adentro. Nuestras prácticas te ayudan a reconectar con tu esencia más pura.</p>
+          </div>
+
+          <div class="philosophy-card" data-aos="flip-left" data-aos-delay="400">
+            <div class="icon-mandala">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Amor Propio</h3>
+            <p>Cultivamos el amor propio como base fundamental para el bienestar. Cada sesión es un acto de amor hacia ti mismo.</p>
+          </div>
+
+          <div class="philosophy-card" data-aos="flip-left" data-aos-delay="600">
+            <div class="icon-mandala">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <h3>Crecimiento Consciente</h3>
+            <p>Acompañamos tu proceso de crecimiento personal con mindfulness y presencia plena en cada momento.</p>
+          </div>
+        </div>
+
+        <div class="testimonials" data-aos="fade-up" data-aos-delay="800">
+          <h3>Lo que dicen nuestros visitantes</h3>
+          <div class="swiper testimonialsSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide testimonial-card">
+                <p>"Un lugar mágico donde encontré la paz que tanto buscaba. Cada sesión es un regalo para el alma."</p>
+                <div class="author">
+                  <img src="https://images.unsplash.com/photo-1494790108755-2616b612b372?w=100&h=100&fit=crop&crop=face" alt="María">
+                  <span>María González</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide testimonial-card">
+                <p>"Las terapias de sonido transformaron completamente mi bienestar. Recomiendo este lugar con el corazón."</p>
+                <div class="author">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Carlos">
+                  <span>Carlos Rodríguez</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide testimonial-card">
+                <p>"Un oasis de tranquilidad en la ciudad. Cada visita renueva mi energía y me conecta conmigo misma."</p>
+                <div class="author">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Ana">
+                  <span>Ana Martínez</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- Modal para crear reserva -->
+  <div id="reservationModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Crear Nueva Reserva</h3>
+        <span class="close" id="closeModal">&times;</span>
+      </div>
+      <form id="modalReservationForm" class="reservation-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalName">
+              <i class="fas fa-user"></i>
+              Nombre Completo
+            </label>
+            <input type="text" id="modalName" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="modalEmail">
+              <i class="fas fa-envelope"></i>
+              Correo Electrónico
+            </label>
+            <input type="email" id="modalEmail" name="email" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalPhone">
+              <i class="fas fa-phone"></i>
+              Teléfono
+            </label>
+            <input type="tel" id="modalPhone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="modalService">
+              <i class="fas fa-spa"></i>
+              Servicio
+            </label>
+            <select id="modalService" name="service" required>
+              <option value="">Selecciona un servicio</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalDate">
+              <i class="fas fa-calendar-alt"></i>
+              Fecha
+            </label>
+            <input type="text" id="modalDate" name="date" class="flatpickr-date" readonly>
+          </div>
+          <div class="form-group">
+            <label for="modalTime">
+              <i class="fas fa-clock"></i>
+              Hora
+            </label>
+            <select id="modalTime" name="time" required>
+              <option value="">Selecciona una hora</option>
+              <option value="09:00">09:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="14:00">02:00 PM</option>
+              <option value="15:00">03:00 PM</option>
+              <option value="16:00">04:00 PM</option>
+              <option value="17:00">05:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="modalComments">
+            <i class="fas fa-comment-alt"></i>
+            Comentarios Especiales (Opcional)
+          </label>
+          <textarea id="modalComments" name="comments" placeholder="¿Hay algo específico que debemos saber para tu sesión?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-submit" id="modalSubmitBtn">
+          <i class="fas fa-paper-plane"></i>
+          <span>Confirmar Reserva</span>
+          <div class="btn-loader" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i>
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Controles flotantes -->
+  <div class="floating-controls">
+    <button id="musicToggle" class="control-btn" title="Música relajante">
+      <i class="fas fa-music"></i>
+    </button>
+    <button id="themeToggle" class="control-btn" title="Cambiar tema">
+      <i class="fas fa-sun"></i>
+    </button>
+  </div>
+
+  <!-- Cargador principal -->
+  <div id="mainLoader" class="main-loader">
+    <div class="loader-content">
+      <div class="lotus-loader">
+        <div class="lotus-petal"></div>
+        <div class="lotus-petal"></div>
+        <div class="lotus-petal"></div>
+        <div class="lotus-petal"></div>
+        <div class="lotus-petal"></div>
+        <div class="lotus-petal"></div>
+        <div class="lotus-petal"></div>
+        <div class="lotus-petal"></div>
+      </div>
+      <p>Preparando tu experiencia de bienestar...</p>
+    </div>
+  </div>
+
+  <!-- Scripts de librerías -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.js"></script>
+
+
+  <!-- Script personalizado -->
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
